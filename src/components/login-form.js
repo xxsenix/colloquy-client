@@ -19,32 +19,42 @@ export class LoginForm extends React.Component {
             );
         }
         return (
-            <form
-                className="login-form"
-                onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
-                )}>
-                {error}
-                <label htmlFor="username">Username</label>
-                <Field
-                    component={Input}
-                    type="text"
-                    name="username"
-                    id="username"
-                    validate={[required, nonEmpty]}
-                />
-                <label htmlFor="password">Password</label>
-                <Field
-                    component={Input}
-                    type="password"
-                    name="password"
-                    id="password"
-                    validate={[required, nonEmpty]}
-                />
-                <button disabled={this.props.pristine || this.props.submitting}>
-                    Log in
-                </button>
-            </form>
+            <fieldset className="auth-fieldset">
+                <form
+                    className="auth-form"
+                    onSubmit={this.props.handleSubmit(values =>
+                        this.onSubmit(values)
+                    )}>
+                    {error}
+                    <div className="input-wrapper">
+                        <label htmlFor="username" className="auth-label">username</label>
+                        <Field
+                            component={Input}
+                            className="auth-input"
+                            type="text"
+                            placeholder="username"
+                            name="username"
+                            id="username"
+                            validate={[required, nonEmpty]}
+                        />
+                    </div>
+                    <div className="input-wrapper">
+                        <label htmlFor="password" className="auth-label">password</label>
+                        <Field
+                            component={Input}
+                            className="auth-input"
+                            type="password"
+                            placeholder="password"
+                            name="password"
+                            id="password"
+                            validate={[required, nonEmpty]}
+                        />
+                    </div>
+                    <button className="auth-submit-button" disabled={this.props.pristine || this.props.submitting}>
+                        log in
+                    </button>
+                </form>
+            </fieldset>
         );
     }
 }

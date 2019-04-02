@@ -21,3 +21,7 @@ body {
   font-family: "Raleway", sans-serif;
   font-size: 14px;
 }
+
+.logout {
+  margin-top: 100px;
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './registration-form.css';
 
 export default class Input extends React.Component {
     componentDidUpdate(prevProps) {
@@ -30,6 +31,8 @@ export default class Input extends React.Component {
                 <input
                     {...this.props.input}
                     id={this.props.input.name}
+                    className={this.props.className}
+                    placeholder={this.props.placeholder}
                     type={this.props.type}
                     ref={input => (this.input = input)}
                 />
