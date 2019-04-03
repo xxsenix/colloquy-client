@@ -13,12 +13,38 @@ export class Header extends React.Component {
     }
 
     render() {
+        let logOutLink;
+        let usernameLink;
+        let logInLink;
+        let signUpLink;
+
+        if (this.props.loggedIn) {
+            usernameLink = (
+                <Link className="username-link">{this.props.username}</Link>
+            )
+
+            logOutLink = (
+                <Link className="logout-link" onClick={() => this.logOut()}>LOG OUT</Link>
+            )
+        }
+
+        else if (!this.props.loggedIn) {
+            logInLink = (
+                <Link className="login-link" to="/login">LOG IN</Link>
+            )
+            signUpLink = (
+                <Link className="signup-link" to="/register">SIGN UP</Link>
+            )
+        }
+
         return (
             <header>
                 <nav className="banner">
                     <Link className="coliquy-logo" to="/"><span className="c">C</span>olloquy</Link>
-                    <Link className="login" to="/login">LOG IN</Link>
-                    <Link className="signup" to="/register">SIGN UP</Link>
+                    {usernameLink}
+                    {logOutLink}
+                    {logInLink}
+                    {signUpLink}
                 </nav>   
             </header>
         );
@@ -27,6 +53,7 @@ export class Header extends React.Component {
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
+    // username: state.auth.currentUser.username
 });
 
 export default connect(mapStateToProps)(Header);

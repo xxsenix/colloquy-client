@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import './landing-page.css';
+import Posts from './posts';
+import Categories from './categories';
 
 export function LandingPage(props) {
     // If we are logged in redirect straight to the user's dashboard
@@ -9,8 +12,12 @@ export function LandingPage(props) {
     }
 
     return (
-        <div className="home">
-        </div>
+        <main role="main" className="landing-main">
+            <Posts />
+            <div className="right">
+                <Categories />
+            </div>
+        </main>
     );
 }
 

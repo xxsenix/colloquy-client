@@ -1,0 +1,25 @@
+.landing-main {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    align-items: flex-start;
+    flex: 1 0 auto;
+    padding: 50px;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 50px;
+  }
+
+  .create-post {
+    text-align: center;
+    padding: 10px;
+    background: #3f5efb;
+    color: white;
+    cursor: pointer;
+    border: 1px solid #333333;
+    margin-bottom: 30px;
+}

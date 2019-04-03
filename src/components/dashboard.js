@@ -4,6 +4,11 @@ import requiresLogin from './requires-login';
 import {fetchProtectedData} from '../actions/protected-data';
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+import {Link, Redirect} from 'react-router-dom';
+import './dashboard.css';
+import Posts from './posts';
+import Categories from './categories';
+import Profile from './profile';
 
 export class Dashboard extends React.Component {
     componentDidMount() {
@@ -23,16 +28,22 @@ export class Dashboard extends React.Component {
             );
         }
         return (
-            <div className="dashboard">
-              {logOutButton}
+        <main role="main" className="landing-main">
+            <Posts />
+            <div className="right">
+                <Categories />
+                <Link to="/createpost" className="create-post">Create Post</Link>
+                <Profile />
             </div>
+        </main>
         );
     }
 }
 
 const mapStateToProps = state => {
     return {
-        loggedIn: state.auth.currentUser !== null
+        loggedIn: state.auth.currentUser !== null,
+        username: state.auth.currentUser.username
     };
 };
 
