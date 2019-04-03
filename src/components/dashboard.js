@@ -15,18 +15,7 @@ export class Dashboard extends React.Component {
         this.props.dispatch(fetchProtectedData());
     }
 
-    logOut() {
-        this.props.dispatch(clearAuth());
-        clearAuthToken();
-    }
-
     render() {
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button className="logout" onClick={() => this.logOut()}>Log out</button>
-            );
-        }
         return (
         <main role="main" className="landing-main">
             <Posts />

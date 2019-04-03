@@ -4,10 +4,6 @@ import {Link, Redirect} from 'react-router-dom';
 import './create-post.css';
 
 export function CreatePost(props) {
-    // If we are logged in redirect straight to the user's dashboard
-    if (props.loggedIn) {
-        return <Redirect to="/dashboard" />;
-    }
 
     return (
     <main role="main" className="auth-main">
