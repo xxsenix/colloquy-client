@@ -13,23 +13,20 @@
     padding: 10px;
 }
 
-/* .profile-content {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.profile-content * {
-    padding: 5px;
-    font-weight: 300;
-} */
-
 .profile-content {
     padding: 10px;
 }
 
 .profile-content p {
     margin-top: 10px;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    .profile {
+      margin-left: 20px;
+    }
+    
 }
 

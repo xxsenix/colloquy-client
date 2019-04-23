@@ -2,14 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Route, withRouter} from 'react-router-dom';
 
-import Header from './header';
-import LandingPage from './landing-page';
-import Dashboard from './dashboard';
-import RegistrationPage from './registration-page';
-import LoginPage from './login-page';
-import Footer from './footer';
-import CreatePost from './create-post';
-import CommentThread from './comment-thread';
+import Header from './header/header';
+import LandingPage from './landing/landing-page';
+import Dashboard from './dashboard/dashboard';
+import RegistrationPage from './auth/registration-page';
+import LoginPage from './auth/login-page';
+import Footer from './footer/footer';
+import CreatePost from './create-post/create-post';
+import CommentThread from './comments/comment-thread';
 import {refreshAuthToken} from '../actions/auth';
 
 export class App extends React.Component {
@@ -47,7 +47,7 @@ export class App extends React.Component {
             <div className="app">
                 <Header />
                 <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
+                <Route path="/dashboard/" component={Dashboard} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/login" component={LoginPage} />
                 <Route exact path="/createpost" component={CreatePost} />

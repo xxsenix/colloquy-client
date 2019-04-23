@@ -1,14 +1,14 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import requiresLogin from './requires-login';
-import {fetchProtectedData} from '../actions/protected-data';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
+import requiresLogin from '../auth/requires-login';
+import {fetchProtectedData} from '../../actions/protected-data';
+import {clearAuth} from '../../actions/auth';
+import {clearAuthToken} from '../../local-storage';
 import {Link, Redirect} from 'react-router-dom';
 import './dashboard.css';
-import Posts from './posts';
-import Categories from './categories';
-import Profile from './profile';
+import Posts from '../posts/posts';
+import Categories from '../categories/categories';
+import Profile from '../profile/profile';
 
 export class Dashboard extends React.Component {
     componentDidMount() {

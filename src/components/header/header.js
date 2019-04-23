@@ -1,9 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
+import {clearAuth} from '../../actions/auth';
+import {clearAuthToken} from '../../local-storage';
 import {Link} from 'react-router-dom';
-// import {Link, Redirect} from 'react-router-dom';
 import './header.css'
 
 export class Header extends React.Component {
@@ -40,7 +39,7 @@ export class Header extends React.Component {
         return (
             <header>
                 <nav className="banner">
-                    <Link className="coliquy-logo" to="/"><span className="c">C</span>olloquy</Link>
+                    <Link className="colloquy-logo" to="/"><span className="c">C</span>olloquy</Link>
                     {usernameLink}
                     {logOutLink}
                     {logInLink}
@@ -52,8 +51,8 @@ export class Header extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
-    // username: state.auth.currentUser.username
+    loggedIn: state.auth.currentUser !== null,
+    username: state.auth.currentUser ? state.auth.currentUser.username : ''
 });
 
 export default connect(mapStateToProps)(Header);

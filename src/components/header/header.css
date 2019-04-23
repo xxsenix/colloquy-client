@@ -12,11 +12,15 @@
     font-family: "Merriweather", serif;
   }
   
- .logout-link, .login-link, .signup-link {
+ .logout-link, .login-link, .signup-link, .username-link {
     color: white;
     text-decoration: none;
     margin-right: 50px;
     font-size: 12px;
+}
+
+.username-link {
+  text-transform: uppercase;
 }
 
   .c {
@@ -30,7 +34,7 @@
     margin-right: 25px;
   }
   
-  .coliquy-logo {
+  .colloquy-logo {
     flex: 1;
     margin-left: 100px;
     font-size: 20px;
@@ -40,3 +44,10 @@
     color: white;
   }
   
+
+@media only screen and (max-width: 600px) {
+
+  .coliquy-logo {
+    margin-left: 50px;
+  }
+}

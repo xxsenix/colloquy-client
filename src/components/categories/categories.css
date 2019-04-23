@@ -36,3 +36,12 @@
     background: #3f5efb;
     cursor: pointer;
   }
+
+
+@media only screen and (max-width: 600px) {
+
+  .categories {
+    margin-left: 20px;
+  }
+  
+}

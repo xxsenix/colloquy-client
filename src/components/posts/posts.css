@@ -1,4 +1,4 @@
-.posts ul {
+  .posts ul {
     list-style: none;
   }
   
@@ -61,7 +61,6 @@
   }
   
   .details-wrapper a {
-    margin-right: 3px;
     color: #b0b8bf;
   }
   
@@ -69,3 +68,37 @@
     text-decoration: none;
     color: white;
   }
+
+  .category, .author {
+    margin-left: 5px;
+  }
+
+  .date-and-author {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+  }
+
+  .date {
+    padding: 5px;
+    font-size: 12px;
+    color: #b0b8bf;
+  }
+
+  .authorName {
+margin: auto;
+color: blue;
+  }
+  
+@media only screen and (max-width: 600px) {
+  
+  .details-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .voting-box {
+    display: flex;
+  }
+  
+}

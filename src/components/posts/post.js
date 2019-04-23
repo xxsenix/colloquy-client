@@ -1,0 +1,39 @@
+import React from 'react';
+import {Link, Redirect} from 'react-router-dom';
+import './posts.css';
+
+export default class Post extends React.Component {
+    render() {
+        const posts = this.props.posts.map((post, i) => {
+            let date = new Date(post.created);
+            return (
+                <li key={i} className="item">
+                    <div className="post-wrapper" id={post.id}>
+                        <div className="voting-box">
+                            <div className="voting-box-content">
+                            <i className="fas fa-angle-up"></i><span>{post.votes}</span>
+                            <i className="fas fa-angle-down"></i>
+                            </div>
+                        </div>
+                        <div className="content-wrapper">
+                            <div className="title-wrapper">
+                            <a href="#">
+                                {post.title}
+                            </a>
+                            </div>
+                            <div className="details-wrapper">
+                                <Link to="/comments"><i className="fas fa-comments"></i> {post.comments.length} comments </Link>
+                                <a class="category" href="#">{post.category}</a>
+                                <p class="author">{post.author}</p>
+                            </div>
+                        </div>
+                        <div class="date-and-author">
+                        <p class="date">{date.toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                </li>
+            );
+        });
+        return posts;
+    }
+}

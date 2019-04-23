@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
-import Post from './post';
+import Post from '../posts/post';
 import CommentForm from './comment-form';
 import CommentList from './comment-list';
-import Categories from './categories';
-import Profile from './profile';
+import Categories from '../categories/categories';
+import Profile from '../profile/profile';
+import PostBody from '../post-body/post-body';
 import './comment-thread.css';
 
 export class CommentThread extends React.Component {
@@ -32,6 +33,7 @@ export class CommentThread extends React.Component {
                         <Post />
                     </ul>
                 </section>
+                <PostBody />
                 <CommentForm />
                 <CommentList />
             </div>

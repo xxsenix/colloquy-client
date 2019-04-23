@@ -1,10 +1,9 @@
 .landing-main {
     width: 90%;
-    margin: 30px auto;
+    margin: 100px auto;
     display: flex;
     align-items: flex-start;
     flex: 1 0 auto;
-    padding: 50px;
   }
 
   .right {
@@ -13,3 +12,12 @@
     flex: 1;
     margin-left: 50px;
   }
+
+
+@media only screen and (max-width: 600px) {
+
+  .landing-main {
+    justify-content: space-around;
+  }
+
+}

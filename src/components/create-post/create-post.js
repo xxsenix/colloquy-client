@@ -28,7 +28,6 @@ export function CreatePost(props) {
                 placeholder="title"
                 autocomplete="off"
                 className="auth-input"
-                value
               />
             </div>
             <div className="input-wrapper">

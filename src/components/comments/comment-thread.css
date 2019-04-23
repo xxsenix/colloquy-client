@@ -1,4 +1,4 @@
-.new-comment-wrapper {
+  .new-comment-wrapper {
     border: 1px solid #333333;
     border-top: none;
   }
@@ -30,10 +30,8 @@
     color: white;
     cursor: pointer;
     align-self: center;
-    /* margin: 5px; */
     outline: none;
     padding: 5px 12px;
-    /* border-radius: 3px; */
     border: none;
     letter-spacing: 1px;
     width: 100%;
