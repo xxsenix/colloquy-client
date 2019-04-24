@@ -18,7 +18,7 @@ export class Dashboard extends React.Component {
     render() {
         return (
         <main role="main" className="landing-main">
-            <Posts />
+            <Posts {...this.props}/>
             <div className="right">
                 <Categories />
                 <Link to="/createpost" className="create-post">Create Post</Link>

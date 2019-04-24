@@ -23,12 +23,12 @@ export default class Post extends React.Component {
                             </div>
                             <div className="details-wrapper">
                                 <Link to="/comments"><i className="fas fa-comments"></i> {post.comments.length} comments </Link>
-                                <a class="category" href="#">{post.category}</a>
-                                <p class="author">{post.author}</p>
+                                <a className="category" href="#">{post.category}</a>
+                                <p className="author">{post.author}</p>
                             </div>
                         </div>
-                        <div class="date-and-author">
-                        <p class="date">{date.toLocaleDateString()}</p>
+                        <div className="date-and-author">
+                        <p className="date">{date.toLocaleDateString()}</p>
                         </div>
                     </div>
                 </li>

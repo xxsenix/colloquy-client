@@ -29,8 +29,16 @@ export class Posts extends React.Component {
     }
 
     render() {
-        let posts = this.props.posts;
+        let posts;
 
+        if (this.props.match !== undefined && this.props.match.params.category !== undefined) {
+            posts = this.props.posts.filter(
+                post => post.category.toLowerCase() === this.props.match.params.category
+            )
+        } else {
+            posts = this.props.posts;
+        }
+        
         return (
             <section className="posts">
                 {this.isLoading()}

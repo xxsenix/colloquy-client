@@ -19,11 +19,11 @@ export class Header extends React.Component {
 
         if (this.props.loggedIn) {
             usernameLink = (
-                <Link className="username-link">{this.props.username}</Link>
+                <Link className="username-link" to="/">{this.props.username}</Link>
             )
 
             logOutLink = (
-                <Link className="logout-link" onClick={() => this.logOut()}>LOG OUT</Link>
+                <Link className="logout-link" to="/" onClick={() => this.logOut()}>LOG OUT</Link>
             )
         }
 
