@@ -19,7 +19,7 @@ export function Profile(props) {
 
 const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
-    username: state.auth.currentUser.username
+    username: state.auth.currentUser ? state.auth.currentUser.username : ''
 });
 
 export default connect(mapStateToProps)(Profile);

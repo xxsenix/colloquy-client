@@ -4,7 +4,6 @@ import {Route, withRouter} from 'react-router-dom';
 
 import Header from './header/header';
 import LandingPage from './landing/landing-page';
-import Dashboard from './dashboard/dashboard';
 import RegistrationPage from './auth/registration-page';
 import LoginPage from './auth/login-page';
 import Footer from './footer/footer';
@@ -47,8 +46,7 @@ export class App extends React.Component {
             <div className="app">
                 <Header />
                 <Route exact path="/" component={LandingPage} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/dashboard/:category" component={Dashboard} />
+                <Route exact path="/c/:category" component={LandingPage} />
                 <Route exact path="/register" component={RegistrationPage} />
                 <Route exact path="/login" component={LoginPage} />
                 <Route exact path="/createpost" component={CreatePost} />

@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
 import { getAllPosts, getPostsByCategory } from '../../actions/posts';
 import Post from './post';
 import Spinner from 'react-spinkit';

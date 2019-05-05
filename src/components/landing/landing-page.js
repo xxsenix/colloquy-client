@@ -4,21 +4,35 @@ import {Link, Redirect} from 'react-router-dom';
 import './landing-page.css';
 import Posts from '../posts/posts';
 import Categories from '../categories/categories';
+import Profile from '../profile/profile';
 
-export function LandingPage(props) {
-    // If we are logged in redirect straight to the user's dashboard
-    if (props.loggedIn) {
-        return <Redirect to="/dashboard" />;
+export class LandingPage extends React.Component{
+    
+    render() {
+        let createPost;
+        let profile;
+
+        if (this.props.loggedIn) {
+            createPost = (
+                <Link to="/createpost" className="create-post">Create Post</Link>
+            )
+
+            profile = (
+                <Profile />
+            )
+        }
+
+        return (
+            <main role="main" className="landing-main">
+                <Posts {...this.props}/>
+                <div className="right">
+                    <Categories />
+                    {createPost}
+                    {profile}
+                </div>
+            </main>
+        );
     }
-
-    return (
-        <main role="main" className="landing-main">
-            <Posts />
-            <div className="right">
-                <Categories />
-            </div>
-        </main>
-    );
 }
 
 const mapStateToProps = state => ({
