@@ -1,57 +1,105 @@
-import { API_BASE_URL } from '../config';
-import { normalizeResponseErrors } from './utils';
+import { API_BASE_URL } from "../config";
+import { normalizeResponseErrors } from "./utils";
 
-export const START_LOADING = 'START_LOADING';
+export const START_LOADING = "START_LOADING";
 export const startLoading = loading => ({
-    type: START_LOADING,
-    loading
+  type: START_LOADING,
+  loading
 });
 
-// Fetch GET 
+// Fetch Posts
 export const FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS";
 export const fetchPostsSuccess = posts => ({
-    type: FETCH_POSTS_SUCCESS,
-    posts
+  type: FETCH_POSTS_SUCCESS,
+  posts
 });
 
 export const FETCH_POSTS_ERROR = "FETCH_POSTS_ERROR";
 export const fetchPostsError = posts => ({
-    type: FETCH_POSTS_ERROR,
-    posts
+  type: FETCH_POSTS_ERROR,
+  posts
 });
 
 export const getAllPosts = filter => dispatch => {
-    dispatch(startLoading());
+  dispatch(startLoading());
 
-    return fetch(`${API_BASE_URL}/posts`, {
-        method: "GET",
-        headers: {
-            "content-type": "application/json"
-        }
-    })
-      .then(res => normalizeResponseErrors(res))
-      .then(res => res.json())
-      .then(posts => dispatch(fetchPostsSuccess(posts)))
-      .catch(err => {
-          console.log("Error! Try again.");
-          dispatch(fetchPostsError(err))
-      });
+  return fetch(`${API_BASE_URL}/posts`, {
+    method: "GET",
+    headers: {
+      "content-type": "application/json"
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(posts => dispatch(fetchPostsSuccess(posts)))
+    .catch(err => {
+      console.log("Error! Try again.");
+      dispatch(fetchPostsError(err));
+    });
 };
 
-export const getPostsByCategory = category => dispatch => {
-    dispatch(startLoading());
+//Fetch One Post
+export const FETCH_ONE_POST_SUCCESS = "FETCH_ONE_POST_SUCCESS";
+export const fetchOnePostSuccess = item => ({
+  type: FETCH_ONE_POST_SUCCESS,
+  item
+});
 
-    return fetch(`${API_BASE_URL}/posts/${category}`, {
-        method: "GET",
-        headers: {
-            "content-type": "application/json"
-        }
-    })
-      .then(res => normalizeResponseErrors(res))
-      .then(res => res.json())
-      .then(posts => dispatch(fetchPostsSuccess(posts)))
-      .catch(err => {
-          console.log("Error! Try again.");
-          dispatch(fetchPostsError(err))
-      });
+export const FETCH_ONE_POST_ERROR = "FETCH_ONE_POST_ERROR";
+export const fetchOnePostError = error => ({
+  type: FETCH_ONE_POST_ERROR,
+  error
+});
+
+export const getOnePost = postId => dispatch => {
+  dispatch(startLoading());
+
+  return fetch(`${API_BASE_URL}/posts/${postId}`, {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json"
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(item => dispatch(fetchOnePostSuccess(item)))
+    .catch(err => {
+      console.log("Error! Try again.");
+      dispatch(fetchOnePostError(err));
+    });
+};
+
+// Post Posts
+export const POST_ITEM_SUCCESS = "POST_ITEM_SUCCESS";
+export const postItemSuccess = item => ({
+  type: POST_ITEM_SUCCESS,
+  item
+});
+
+export const POST_ITEM_ERROR = "POST_ITEM_ERROR";
+export const postItemError = error => ({
+  type: POST_ITEM_ERROR,
+  error
+});
+
+export const postItem = item => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/posts/`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json",
+      Authorization: `Bearer ${authToken}`
+    },
+
+    body: JSON.stringify(item)
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(item => dispatch(postItemSuccess(item)))
+    .catch(err => {
+      console.log("Error! Try again.");
+      dispatch(postItemError(err));
+    });
 };

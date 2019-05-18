@@ -4,7 +4,7 @@ import {
 
 const initialState = {
     bgColor: '#262626',
-    selected: 'all'
+    selected: false
 };
 
 export default function reducer(state = initialState, action) {

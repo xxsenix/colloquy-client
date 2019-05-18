@@ -1,55 +1,99 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
-import './create-post.css';
+import React from "react";
+import { connect } from "react-redux";
+import { postItem } from "../../actions/posts";
+import "./create-post.css";
 
-export function CreatePost(props) {
+export class CreatePost extends React.Component {
+  //initial state
+  constructor(props) {
+    super(props);
+    this.state = {
+      category: "Politics",
+      title: "",
+      body: ""
+    };
+  }
 
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.dispatch(postItem(this.state)).then(res => {
+      if (this.props.item) {
+        this.props.history.push(
+          `c/${this.props.item.category}/${this.props.item._id}`
+        );
+      } else {
+        alert("error");
+      }
+    });
+  }
+
+  render() {
     return (
-    <main role="main" className="auth-main">
+      <main role="main" className="auth-main">
         <fieldset className="auth-fieldset">
-          <form className="auth-form">
+          <form className="auth-form" onSubmit={e => this.handleSubmit(e)}>
             <div className="input-wrapper">
-              <label for="category" className="auth-label">category</label>
+              <label htmlFor="category" className="auth-label">
+                category
+              </label>
               <div className="select-wrapper">
-                <select name="category" type="select" className="category-select">
-                  <option value="politics">politics</option>
-                  <option value="politics">programming</option>
-                  <option value="politics">movies</option>
-                  <option value="politics">sports</option>
+                <select
+                  name="category"
+                  type="select"
+                  className="category-select"
+                  value={this.state.category}
+                  onChange={e => this.setState({ category: e.target.value })}
+                >
+                  <option>Politics</option>
+                  <option>Programming</option>
+                  <option>Movies</option>
+                  <option>Sports</option>
                 </select>
               </div>
             </div>
             <div className="input-wrapper">
-              <label for="title" className="auth-label">title</label>
+              <label htmlFor="title" className="auth-label">
+                title
+              </label>
               <input
                 name="title"
                 type="text"
+                value={this.state.title}
+                onChange={e => this.setState({ title: e.target.value })}
                 placeholder="title"
-                autocomplete="off"
+                autoComplete="off"
                 className="auth-input"
               />
             </div>
             <div className="input-wrapper">
-              <label for="text" className="auth-label"
-                >What do you want to say?</label
-              >
+              <label htmlFor="text" className="auth-label">
+                What do you want to say?
+              </label>
               <textarea
                 name="text"
                 rows="6"
+                value={this.state.body}
+                onChange={e => this.setState({ body: e.target.value })}
                 placeholder="keep it clean :)"
                 className="create-post-text"
-              ></textarea>
+              />
             </div>
-            <button type="submit" className="auth-submit-button">create post</button>
+            <button type="submit" className="auth-submit-button">
+              create post
+            </button>
           </form>
         </fieldset>
       </main>
     );
+  }
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  posts: state.posts.posts,
+  item: state.posts.item
 });
+
+// to get to the last post: post[post.length - 1]
 
 export default connect(mapStateToProps)(CreatePost);

@@ -1,42 +1,41 @@
-import React from 'react';
-import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
-import './landing-page.css';
-import Posts from '../posts/posts';
-import Categories from '../categories/categories';
-import Profile from '../profile/profile';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import "./landing-page.css";
+import Posts from "../posts/posts";
+import Categories from "../categories/categories";
+import Profile from "../profile/profile";
 
-export class LandingPage extends React.Component{
-    
-    render() {
-        let createPost;
-        let profile;
+export class LandingPage extends React.Component {
+  render() {
+    let createPost;
+    let profile;
 
-        if (this.props.loggedIn) {
-            createPost = (
-                <Link to="/createpost" className="create-post">Create Post</Link>
-            )
+    if (this.props.loggedIn) {
+      createPost = (
+        <Link to="/createpost" className="create-post">
+          Create Post
+        </Link>
+      );
 
-            profile = (
-                <Profile />
-            )
-        }
-
-        return (
-            <main role="main" className="landing-main">
-                <Posts {...this.props}/>
-                <div className="right">
-                    <Categories />
-                    {createPost}
-                    {profile}
-                </div>
-            </main>
-        );
+      profile = <Profile />;
     }
+
+    return (
+      <main role="main" className="landing-main">
+        <Posts {...this.props} />
+        <div className="right">
+          <Categories />
+          {createPost}
+          {profile}
+        </div>
+      </main>
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(LandingPage);

@@ -1,47 +1,51 @@
 .categories {
-    border: 1px solid #333333;
-    background: #262626;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 30px;
-  }
+  border: 1px solid #333333;
+  background: #262626;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
 
-  .categories h3 {
-    text-align: center;
-    padding: 10px;
-  }
+.categories h3 {
+  text-align: center;
+  padding: 10px;
+}
 
-  .categories-header {
-    background: #333333;
-    color: #b0b8bf;
-    letter-spacing: 2px;
-  }
+.categories-header {
+  background: #333333;
+  color: #b0b8bf;
+  letter-spacing: 2px;
+}
 
-  .category-name {
-    display: flex;
-    padding: 20px;
-    align-self: center;
-    justify-content: center;
-    flex: 1;
-    width: 100%;
-    border-top: 1px solid #333333;
-  }
+.unselected {
+  display: flex;
+  padding: 20px;
+  align-self: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  border-top: 1px solid #333333;
+}
 
-  .all {
-    background: #3f5efb;
-  }
+.selected {
+  background: #3f5efb;
+  display: flex;
+  padding: 20px;
+  align-self: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  border-top: 1px solid #333333;
+}
 
-  .category-name:hover {
-    background: #3f5efb;
-    cursor: pointer;
-  }
-
+.unselected:hover {
+  background: #3f5efb;
+  cursor: pointer;
+}
 
 @media only screen and (max-width: 600px) {
-
   .categories {
     margin-left: 20px;
   }
-  
 }
