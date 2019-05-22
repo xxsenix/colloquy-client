@@ -103,3 +103,38 @@ export const postItem = item => (dispatch, getState) => {
       dispatch(postItemError(err));
     });
 };
+
+// Post Comments
+export const POST_COMMENT_SUCCESS = "POST_COMMENT_SUCCESS";
+export const postCommentSuccess = item => ({
+  type: POST_COMMENT_SUCCESS,
+  item
+});
+
+export const POST_COMMENT_ERROR = "POST_COMMENT_ERROR";
+export const postCommentError = error => ({
+  type: POST_COMMENT_ERROR,
+  error
+});
+
+export const postComment = (item, postId) => (dispatch, getState) => {
+  // postId = getState().posts.item;
+  const authToken = getState().auth.authToken;
+  return fetch(`${API_BASE_URL}/posts/${postId}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json",
+      Authorization: `Bearer ${authToken}`
+    },
+
+    body: JSON.stringify(item)
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(item => dispatch(postCommentSuccess(item)))
+    .catch(err => {
+      console.log("Error! Try again.");
+      dispatch(postCommentError(err));
+    });
+};

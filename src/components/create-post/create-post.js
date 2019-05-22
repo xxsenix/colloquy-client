@@ -94,6 +94,4 @@ const mapStateToProps = state => ({
   item: state.posts.item
 });
 
-// to get to the last post: post[post.length - 1]
-
 export default connect(mapStateToProps)(CreatePost);

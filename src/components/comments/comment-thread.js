@@ -14,7 +14,14 @@ export class CommentThread extends React.Component {
   componentDidMount() {
     this.props.dispatch(getOnePost(this.props.match.params.post));
   }
+
+  // componentDidUpdate() {
+  //   // this.props.dispatch(getOnePost(this.props.match.params.post));
+  //   this.props.dispatch(getOnePost(this.props.item.id));
+  // }
+
   render() {
+    console.log(this.props.item);
     let categories;
     let profile;
     let createPost;
@@ -30,9 +37,6 @@ export class CommentThread extends React.Component {
       profile = <Profile />;
     }
 
-    console.log("params", this.props.match.params.post);
-    console.log("item", item);
-
     return (
       <main role="main" className="landing-main">
         <div className="comment-component-wrapper">
@@ -42,7 +46,7 @@ export class CommentThread extends React.Component {
             </ul>
           </section>
           <PostBody item={item} />
-          <CommentForm />
+          <CommentForm {...this.props} />
           <CommentList item={item} />
         </div>
         <div className="right">
