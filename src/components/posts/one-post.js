@@ -1,9 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { deletePost } from "../../actions/posts";
 import "./posts.css";
 
-export default class OnePost extends React.Component {
+export class OnePost extends React.Component {
+  deleteItem(itemId) {
+    this.props.dispatch(deletePost(itemId)).then(res => {
+      this.props.history.push(`/`);
+    });
+  }
+
   render() {
+    let deleteButton;
+
+    if (this.props.username === this.props.item.author) {
+      deleteButton = (
+        <button
+          onClick={e => {
+            e.preventDefault();
+            this.deleteItem(this.props.item.id);
+          }}
+          className="delete-post-button"
+        >
+          <i className="fas fa-trash-alt" />
+        </button>
+      );
+    }
     let date = new Date(this.props.item.created);
     return (
       <li className="item">
@@ -27,14 +50,21 @@ export default class OnePost extends React.Component {
               <a className="category" href="/">
                 {this.props.item.category}
               </a>
-              <p className="author">{this.props.item.author}</p>
+              <p className="author">posted by {this.props.item.author}</p>
             </div>
           </div>
           <div className="date-and-author">
             <p className="date">{date.toLocaleDateString()}</p>
           </div>
+          {deleteButton}
         </div>
       </li>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  username: state.auth.currentUser ? state.auth.currentUser.username : ""
+});
+
+export default connect(mapStateToProps)(OnePost);

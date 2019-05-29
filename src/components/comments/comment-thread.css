@@ -92,3 +92,16 @@
   color: white;
   margin: auto;
 }
+
+.delete-button {
+  text-underline-position: under;
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+  color: #b0b8bf;
+  margin-left: auto;
+  border: none;
+  outline: none;
+  padding: 2px;
+  text-transform: uppercase;
+}

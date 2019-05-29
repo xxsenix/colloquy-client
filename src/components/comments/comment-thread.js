@@ -15,20 +15,14 @@ export class CommentThread extends React.Component {
     this.props.dispatch(getOnePost(this.props.match.params.post));
   }
 
-  // componentDidUpdate() {
-  //   // this.props.dispatch(getOnePost(this.props.match.params.post));
-  //   this.props.dispatch(getOnePost(this.props.item.id));
-  // }
-
   render() {
-    console.log(this.props.item);
     let categories;
     let profile;
     let createPost;
     let item = this.props.item;
 
     if (this.props.loggedIn) {
-      categories = <Categories />;
+      categories = <Categories {...this.props} />;
       createPost = (
         <Link to="/createpost" className="create-post">
           Create Post
@@ -42,12 +36,12 @@ export class CommentThread extends React.Component {
         <div className="comment-component-wrapper">
           <section className="posts">
             <ul className="posts-list">
-              <OnePost item={item} />
+              <OnePost {...this.props} item={item} />
             </ul>
           </section>
           <PostBody item={item} />
           <CommentForm {...this.props} />
-          <CommentList item={item} />
+          <CommentList {...this.props} item={item} />
         </div>
         <div className="right">
           {categories}

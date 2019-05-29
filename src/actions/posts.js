@@ -118,7 +118,6 @@ export const postCommentError = error => ({
 });
 
 export const postComment = (item, postId) => (dispatch, getState) => {
-  // postId = getState().posts.item;
   const authToken = getState().auth.authToken;
   return fetch(`${API_BASE_URL}/posts/${postId}`, {
     method: "POST",
@@ -132,9 +131,82 @@ export const postComment = (item, postId) => (dispatch, getState) => {
   })
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
-    .then(item => dispatch(postCommentSuccess(item)))
+    .then(item => {
+      dispatch(postCommentSuccess(item));
+    })
     .catch(err => {
       console.log("Error! Try again.");
       dispatch(postCommentError(err));
+    });
+};
+
+export const DELETE_POST_SUCCESS = "DELETE_POST_SUCCESS";
+export const deletePostSuccess = item => ({
+  type: DELETE_POST_SUCCESS,
+  item
+});
+
+export const DELETE_POST_ERROR = "DELETE_POST_ERROR";
+export const deletePostError = error => ({
+  type: DELETE_POST_ERROR,
+  error
+});
+
+export const deletePost = postId => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+
+  return fetch(`${API_BASE_URL}/posts/${postId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json",
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => {
+      normalizeResponseErrors(res);
+    })
+    .then(res => {
+      res.json();
+    })
+    .then(item => {
+      dispatch(deletePostSuccess(item));
+    })
+    .catch(err => {
+      console.log(err);
+      dispatch(deletePostError(err));
+    });
+};
+
+export const DELETE_COMMENT_SUCCESS = "DELETE_COMMENT_SUCCESS";
+export const deleteCommentSuccess = item => ({
+  type: DELETE_COMMENT_SUCCESS,
+  item
+});
+
+export const DELETE_COMMENT_ERROR = "DELETE_COMMENT_ERROR";
+export const deleteCommentError = error => ({
+  type: DELETE_COMMENT_ERROR,
+  error
+});
+
+export const deleteComment = (postId, commentId) => (dispatch, getState) => {
+  const authToken = getState().auth.authToken;
+
+  return fetch(`${API_BASE_URL}/posts/${postId}/${commentId}`, {
+    method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "content-type": "application/json",
+      Authorization: `Bearer ${authToken}`
+    }
+  })
+    .then(res => normalizeResponseErrors(res))
+    .then(res => res.json())
+    .then(item => dispatch(deleteCommentSuccess(item)))
+    .then(dispatch(getOnePost(postId)))
+    .catch(err => {
+      console.log("Error! Try again.");
+      dispatch(deleteCommentError(err));
     });
 };

@@ -5,6 +5,7 @@ import "./categories.css";
 export default class Categories extends React.Component {
   render() {
     let categories = ["all", "politics", "programming", "movies", "sports"];
+
     return (
       <section className="categories">
         <h3 className="categories-header">Categories</h3>
@@ -12,7 +13,8 @@ export default class Categories extends React.Component {
           <Link key={index} to={category === "all" ? "/" : `/c/${category}`}>
             <div
               className={
-                category === window.location.pathname.substring(3) ||
+                // category === window.location.pathname.substring(3) ||
+                category === this.props.match.params.category ||
                 (category === "all" && window.location.pathname === "/")
                   ? "selected"
                   : "unselected"

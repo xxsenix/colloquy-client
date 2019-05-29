@@ -21,14 +21,17 @@ export default class Post extends React.Component {
                 <a href="/">{post.title}</a>
               </div>
               <div className="details-wrapper">
-                <Link to={`/c/${post.category}/${post.id}`}>
+                <Link
+                  className="comments"
+                  to={`/c/${post.category}/${post.id}`}
+                >
                   <i className="fas fa-comments" /> {post.comments.length}{" "}
                   comments{" "}
                 </Link>
                 <a className="category" href="/">
                   {post.category}
                 </a>
-                <p className="author">{post.author}</p>
+                <p className="author">posted by {post.author}</p>
               </div>
             </div>
             <div className="date-and-author">

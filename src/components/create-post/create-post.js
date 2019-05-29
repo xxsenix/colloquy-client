@@ -8,7 +8,7 @@ export class CreatePost extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      category: "Politics",
+      category: "politics",
       title: "",
       body: ""
     };
@@ -44,10 +44,10 @@ export class CreatePost extends React.Component {
                   value={this.state.category}
                   onChange={e => this.setState({ category: e.target.value })}
                 >
-                  <option>Politics</option>
-                  <option>Programming</option>
-                  <option>Movies</option>
-                  <option>Sports</option>
+                  <option>politics</option>
+                  <option>programming</option>
+                  <option>movies</option>
+                  <option>sports</option>
                 </select>
               </div>
             </div>

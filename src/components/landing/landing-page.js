@@ -14,7 +14,7 @@ export class LandingPage extends React.Component {
     if (this.props.loggedIn) {
       createPost = (
         <Link to="/createpost" className="create-post">
-          Create Post
+          CREATE POST
         </Link>
       );
 
@@ -25,7 +25,7 @@ export class LandingPage extends React.Component {
       <main role="main" className="landing-main">
         <Posts {...this.props} />
         <div className="right">
-          <Categories />
+          <Categories {...this.props} />
           {createPost}
           {profile}
         </div>
