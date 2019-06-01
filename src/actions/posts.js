@@ -164,12 +164,16 @@ export const deletePost = postId => (dispatch, getState) => {
     }
   })
     .then(res => {
+      console.log("first res", res);
       normalizeResponseErrors(res);
+      return res;
     })
     .then(res => {
-      res.json();
+      console.log("second res", res);
+      return res.json();
     })
     .then(item => {
+      console.log("item", item);
       dispatch(deletePostSuccess(item));
     })
     .catch(err => {
@@ -193,20 +197,32 @@ export const deleteCommentError = error => ({
 export const deleteComment = (postId, commentId) => (dispatch, getState) => {
   const authToken = getState().auth.authToken;
 
-  return fetch(`${API_BASE_URL}/posts/${postId}/${commentId}`, {
-    method: "DELETE",
-    headers: {
-      Accept: "application/json",
-      "content-type": "application/json",
-      Authorization: `Bearer ${authToken}`
-    }
-  })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then(item => dispatch(deleteCommentSuccess(item)))
-    .then(dispatch(getOnePost(postId)))
-    .catch(err => {
-      console.log("Error! Try again.");
-      dispatch(deleteCommentError(err));
-    });
+  return (
+    fetch(`${API_BASE_URL}/posts/${postId}/${commentId}`, {
+      method: "DELETE",
+      headers: {
+        Accept: "application/json",
+        "content-type": "application/json",
+        Authorization: `Bearer ${authToken}`
+      }
+    })
+      .then(res => {
+        console.log("first res", res);
+        normalizeResponseErrors(res);
+        return res;
+      })
+      .then(res => {
+        console.log("second res", res);
+        return res.json();
+      })
+      .then(item => {
+        console.log("item", item);
+        dispatch(deleteCommentSuccess(item));
+      })
+      // .then(dispatch(getOnePost(postId)))
+      .catch(err => {
+        console.log(err);
+        dispatch(deleteCommentError(err));
+      })
+  );
 };

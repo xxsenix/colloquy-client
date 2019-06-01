@@ -1,14 +1,16 @@
 .thread-body-wrapper {
-  background: #1b1b1b;
+  /* background: #1b1b1b; */
+  background: #212121;
   border-left: 1px solid #333333;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   padding: 10px;
-  height: auto;
+  /* height: auto; */
+  height: 100px;
 }
 
 .thread-body-content {
-  color: rgb(255, 255, 255);
+  color: #b0b8bf;
   font-size: 14px;
   line-height: 1.5;
 }

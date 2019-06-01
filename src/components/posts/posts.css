@@ -41,6 +41,12 @@
   margin: auto;
 }
 
+.voting-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 .content-wrapper {
   display: flex;
   flex-direction: column;

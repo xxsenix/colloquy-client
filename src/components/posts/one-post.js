@@ -6,7 +6,7 @@ import "./posts.css";
 
 export class OnePost extends React.Component {
   deleteItem(itemId) {
-    this.props.dispatch(deletePost(itemId)).then(res => {
+    this.props.dispatch(deletePost(itemId)).then(() => {
       this.props.history.push(`/`);
     });
   }
@@ -33,9 +33,13 @@ export class OnePost extends React.Component {
         <div className="post-wrapper" id={this.props.item.id}>
           <div className="voting-box">
             <div className="voting-box-content">
-              <i className="fas fa-angle-up" />
+              <button className="voting-button">
+                <i className="fas fa-angle-up" />
+              </button>
               <span>{this.props.item.votes}</span>
-              <i className="fas fa-angle-down" />
+              <button className="voting-button">
+                <i className="fas fa-angle-down" />
+              </button>
             </div>
           </div>
           <div className="content-wrapper">
@@ -43,7 +47,10 @@ export class OnePost extends React.Component {
               <a href="/">{this.props.item.title}</a>
             </div>
             <div className="details-wrapper">
-              <Link to="/comments">
+              <Link
+                className="comments"
+                to={`/c/${this.props.item.category}/${this.props.item.id}`}
+              >
                 <i className="fas fa-comments" />{" "}
                 {this.props.item.comments.length} comments{" "}
               </Link>

@@ -1,13 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import { deleteComment } from "../../actions/posts";
+import { getOnePost } from "../../actions/posts";
 
 export class CommentList extends React.Component {
   deleteComment(postId, commentId) {
     this.props.dispatch(deleteComment(postId, commentId)).then(res => {
-      this.props.history.push(
-        `/c/${this.props.item.category}/${this.props.item.id}`
-      );
+      this.props.dispatch(getOnePost(postId));
     });
   }
 
@@ -40,24 +39,22 @@ export class CommentList extends React.Component {
         }
         let date = new Date(comment.created);
         return (
-          <ul key={i} className="comment-list">
-            <li className="comment-item">
-              <div className="comment-wrapper">
-                <div className="commented-by-wrapper">
-                  <a className="author" href="/">
-                    {comment.author.username}
-                  </a>
-                  <span className="timestamp">{date.toLocaleDateString()}</span>
-                  {deleteButton}
-                </div>
-                <div className="comment-content-wrapper">
-                  <div className="comment-content">
-                    <p>{comment.body}</p>
-                  </div>
+          <li key={i} className="comment-item">
+            <div className="comment-wrapper">
+              <div className="commented-by-wrapper">
+                <a className="author" href="/">
+                  {comment.author.username}
+                </a>
+                <span className="timestamp">{date.toLocaleDateString()}</span>
+                {deleteButton}
+              </div>
+              <div className="comment-content-wrapper">
+                <div className="comment-content">
+                  <p>{comment.body}</p>
                 </div>
               </div>
-            </li>
-          </ul>
+            </div>
+          </li>
         );
       });
       return comments;

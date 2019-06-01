@@ -41,7 +41,9 @@ export class CommentThread extends React.Component {
           </section>
           <PostBody item={item} />
           <CommentForm {...this.props} />
-          <CommentList {...this.props} item={item} />
+          <ul className="comment-list">
+            <CommentList {...this.props} item={item} />
+          </ul>
         </div>
         <div className="right">
           {categories}

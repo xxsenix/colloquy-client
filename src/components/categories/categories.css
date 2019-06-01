@@ -26,11 +26,11 @@
   flex: 1;
   width: 100%;
   border-top: 1px solid #333333;
+  transition: color 1s;
 }
 
 .selected {
-  color: #3f5efb;
-  text-decoration: underline;
+  color: #ef8528;
   display: flex;
   padding: 20px;
   align-self: center;
@@ -41,7 +41,7 @@
 }
 
 .unselected:hover {
-  color: #3f5efb;
+  color: #ef8528;
   cursor: pointer;
 }
 

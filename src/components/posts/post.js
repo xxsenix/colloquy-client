@@ -11,9 +11,13 @@ export default class Post extends React.Component {
           <div className="post-wrapper" id={post.id}>
             <div className="voting-box">
               <div className="voting-box-content">
-                <i className="fas fa-angle-up" />
+                <button className="voting-button">
+                  <i className="fas fa-angle-up" />
+                </button>
                 <span>{post.votes}</span>
-                <i className="fas fa-angle-down" />
+                <button className="voting-button">
+                  <i className="fas fa-angle-down" />
+                </button>
               </div>
             </div>
             <div className="content-wrapper">

@@ -23,6 +23,7 @@ const initialState = {
   loading: false
 };
 
+let posts, comments;
 export default function reducer(state = initialState, action) {
   if (action.type === START_LOADING) {
     return Object.assign({}, state, {
@@ -73,8 +74,9 @@ export default function reducer(state = initialState, action) {
       error: action.error
     });
   } else if (action.type === DELETE_POST_SUCCESS) {
+    posts = state.posts.filter(i => i._id !== action.item);
     return Object.assign({}, state, {
-      item: action.item,
+      posts,
       error: null
     });
   } else if (action.type === DELETE_POST_ERROR) {
@@ -82,9 +84,10 @@ export default function reducer(state = initialState, action) {
       error: action.error
     });
   } else if (action.type === DELETE_COMMENT_SUCCESS) {
+    comments = state.item.comments.filter(i => i._id !== action.item);
     return Object.assign({}, state, {
       item: {
-        comments: action.item
+        comments
       },
       error: null,
       loading: false
