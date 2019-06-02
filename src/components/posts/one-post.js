@@ -57,7 +57,10 @@ export class OnePost extends React.Component {
               <a className="category" href="/">
                 {this.props.item.category}
               </a>
-              <p className="author">posted by {this.props.item.author}</p>
+              <p className="author">
+                posted by{" "}
+                <span className="author-name">{this.props.item.author}</span>
+              </p>
             </div>
           </div>
           <div className="date-and-author">

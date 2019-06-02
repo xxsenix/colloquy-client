@@ -82,6 +82,10 @@ a {
   margin-left: 5px;
 }
 
+.author-name {
+  color: #32cd32;
+}
+
 .category {
   color: #ef8528;
 }

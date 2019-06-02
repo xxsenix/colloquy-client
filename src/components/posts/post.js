@@ -35,7 +35,9 @@ export default class Post extends React.Component {
                 <a className="category" href="/">
                   {post.category}
                 </a>
-                <p className="author">posted by {post.author}</p>
+                <p className="author">
+                  posted by <span className="author-name">{post.author}</span>
+                </p>
               </div>
             </div>
             <div className="date-and-author">
