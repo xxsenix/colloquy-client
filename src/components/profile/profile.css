@@ -1,32 +1,28 @@
 .profile {
-    border: 1px solid #333333;
-    background: #262626;
-    color: white;
-    height: auto;
+  border: 1px solid #333333;
+  background: #262626;
+  color: white;
+  height: auto;
 }
 
 .profile-header {
-    background: #333333;
-    color: #b0b8bf;
-    letter-spacing: 2px;
-    text-align: center;
-    padding: 10px;
+  background: #333333;
+  color: #b0b8bf;
+  letter-spacing: 2px;
+  text-align: center;
+  padding: 10px;
 }
 
 .profile-content {
-    padding: 10px;
+  padding: 10px;
 }
 
 .profile-content p {
-    margin-top: 10px;
+  margin-top: 10px;
 }
-
 
 @media only screen and (max-width: 600px) {
-
-    .profile {
-      margin-left: 20px;
-    }
-    
+  .profile {
+    margin-left: 20px;
+  }
 }
-

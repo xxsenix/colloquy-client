@@ -31,7 +31,7 @@ export class OnePost extends React.Component {
     return (
       <li className="item">
         <div className="post-wrapper" id={this.props.item.id}>
-          <div className="voting-box">
+          {/* <div className="voting-box">
             <div className="voting-box-content">
               <button className="voting-button">
                 <i className="fas fa-angle-up" />
@@ -41,7 +41,7 @@ export class OnePost extends React.Component {
                 <i className="fas fa-angle-down" />
               </button>
             </div>
-          </div>
+          </div> */}
           <div className="content-wrapper">
             <div className="title-wrapper">
               <a href="/">{this.props.item.title}</a>
@@ -54,12 +54,17 @@ export class OnePost extends React.Component {
                 <i className="fas fa-comments" />{" "}
                 {this.props.item.comments.length} comments{" "}
               </Link>
-              <a className="category" href="/">
+              <Link className="category" to={`/c/${this.props.item.category}`}>
                 {this.props.item.category}
-              </a>
+              </Link>
               <p className="author">
                 posted by{" "}
-                <span className="author-name">{this.props.item.author}</span>
+                <Link
+                  className="author-name"
+                  to={`/user/${this.props.item.author}`}
+                >
+                  {this.props.item.author}
+                </Link>
               </p>
             </div>
           </div>

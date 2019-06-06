@@ -1,7 +1,17 @@
 import React from "react";
 import { connect } from "react-redux";
 import { postItem } from "../../actions/posts";
+import { Field, reduxForm, focus } from "redux-form";
+import Input from "../input";
+import {
+  required,
+  nonEmpty,
+  matches,
+  length,
+  isTrimmed
+} from "../../validators";
 import "./create-post.css";
+const contentLength = length({ min: 5, max: 30 });
 
 export class CreatePost extends React.Component {
   //initial state
@@ -16,13 +26,15 @@ export class CreatePost extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    // if (!isValid)
+    // return error
     this.props.dispatch(postItem(this.state)).then(res => {
       if (this.props.item) {
         this.props.history.push(
           `c/${this.props.item.category}/${this.props.item._id}`
         );
       } else {
-        alert("error");
+        alert("Please fill out the form correctly");
       }
     });
   }
@@ -55,7 +67,17 @@ export class CreatePost extends React.Component {
               <label htmlFor="title" className="auth-label">
                 title
               </label>
-              <input
+              <Field
+                component={Input}
+                className="auth-input"
+                type="text"
+                value={this.state.title}
+                onChange={e => this.setState({ title: e.target.value })}
+                name="title"
+                placeholder="title"
+                validate={[required, nonEmpty, isTrimmed, contentLength]}
+              />
+              {/* <input
                 name="title"
                 type="text"
                 value={this.state.title}
@@ -63,22 +85,37 @@ export class CreatePost extends React.Component {
                 placeholder="title"
                 autoComplete="off"
                 className="auth-input"
-              />
+              /> */}
             </div>
             <div className="input-wrapper">
               <label htmlFor="text" className="auth-label">
                 What do you want to say?
               </label>
-              <textarea
+              <Field
+                component={Input}
                 name="text"
                 rows="6"
                 value={this.state.body}
                 onChange={e => this.setState({ body: e.target.value })}
                 placeholder="keep it clean :)"
                 className="create-post-text"
+                validate={[required, nonEmpty, isTrimmed, contentLength]}
               />
+              {/* <textarea
+                name="text"
+                rows="6"
+                value={this.state.body}
+                onChange={e => this.setState({ body: e.target.value })}
+                placeholder="keep it clean :)"
+                className="create-post-text"
+              /> */}
             </div>
-            <button type="submit" className="auth-submit-button">
+            <button
+              type="submit"
+              className="auth-submit-button"
+              disabled={this.props.pristine || this.props.submitting}
+            >
+              {" "}
               create post
             </button>
           </form>
@@ -93,5 +130,11 @@ const mapStateToProps = state => ({
   posts: state.posts.posts,
   item: state.posts.item
 });
+
+CreatePost = reduxForm({
+  form: "CreatePost",
+  onSubmitFail: (errors, dispatch) =>
+    dispatch(focus("CreatePost", Object.keys(errors)[0]))
+})(CreatePost);
 
 export default connect(mapStateToProps)(CreatePost);

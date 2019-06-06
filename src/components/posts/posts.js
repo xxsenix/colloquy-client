@@ -36,6 +36,13 @@ export class Posts extends React.Component {
       posts = this.props.posts.filter(
         post => post.category.toLowerCase() === this.props.match.params.category
       );
+    } else if (
+      this.props.match !== undefined &&
+      this.props.match.params.user !== undefined
+    ) {
+      posts = this.props.posts.filter(
+        post => post.author.toLowerCase() === this.props.match.params.user
+      );
     } else {
       posts = this.props.posts;
     }

@@ -23,6 +23,7 @@
   border-radius: 3px;
   padding: 7px;
   outline: none;
+  height: auto;
 }
 
 .create-post-text:focus {

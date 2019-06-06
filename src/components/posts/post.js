@@ -9,7 +9,7 @@ export default class Post extends React.Component {
       return (
         <li key={i} className="item">
           <div className="post-wrapper" id={post.id}>
-            <div className="voting-box">
+            {/* <div className="voting-box">
               <div className="voting-box-content">
                 <button className="voting-button">
                   <i className="fas fa-angle-up" />
@@ -19,7 +19,7 @@ export default class Post extends React.Component {
                   <i className="fas fa-angle-down" />
                 </button>
               </div>
-            </div>
+            </div> */}
             <div className="content-wrapper">
               <div className="title-wrapper">
                 <a href="/">{post.title}</a>
@@ -32,11 +32,14 @@ export default class Post extends React.Component {
                   <i className="fas fa-comments" /> {post.comments.length}{" "}
                   comments{" "}
                 </Link>
-                <a className="category" href="/">
+                <Link className="category" to={`/c/${post.category}`}>
                   {post.category}
-                </a>
+                </Link>
                 <p className="author">
-                  posted by <span className="author-name">{post.author}</span>
+                  posted by{" "}
+                  <Link className="author-name" to={`/user/${post.author}`}>
+                    {post.author}
+                  </Link>
                 </p>
               </div>
             </div>
