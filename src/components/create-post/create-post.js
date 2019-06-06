@@ -11,7 +11,7 @@ import {
   isTrimmed
 } from "../../validators";
 import "./create-post.css";
-const contentLength = length({ min: 5, max: 30 });
+const contentLength = length({ min: 5, max: 90 });
 
 export class CreatePost extends React.Component {
   //initial state
@@ -29,7 +29,11 @@ export class CreatePost extends React.Component {
     // if (!isValid)
     // return error
     this.props.dispatch(postItem(this.state)).then(res => {
-      if (this.props.item) {
+      if (
+        this.props.item &&
+        this.props.item.category !== undefined &&
+        this.props.item._id !== undefined
+      ) {
         this.props.history.push(
           `c/${this.props.item.category}/${this.props.item._id}`
         );
