@@ -3,13 +3,7 @@ import { connect } from "react-redux";
 import { postItem } from "../../actions/posts";
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "../input";
-import {
-  required,
-  nonEmpty,
-  matches,
-  length,
-  isTrimmed
-} from "../../validators";
+import { required, nonEmpty, length, isTrimmed } from "../../validators";
 import "./create-post.css";
 const contentLength = length({ min: 5, max: 90 });
 
@@ -26,8 +20,7 @@ export class CreatePost extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // if (!isValid)
-    // return error
+
     this.props.dispatch(postItem(this.state)).then(res => {
       if (
         this.props.item &&
