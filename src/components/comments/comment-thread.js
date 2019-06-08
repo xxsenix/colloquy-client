@@ -22,7 +22,6 @@ export class CommentThread extends React.Component {
     let item = this.props.item;
 
     if (this.props.loggedIn) {
-      categories = <Categories {...this.props} />;
       createPost = (
         <Link to="/createpost" className="create-post">
           Create Post
@@ -46,7 +45,7 @@ export class CommentThread extends React.Component {
           </ul>
         </div>
         <div className="right">
-          {categories}
+          <Categories {...this.props} />
           {createPost}
           {profile}
         </div>
