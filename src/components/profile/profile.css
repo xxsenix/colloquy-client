@@ -20,9 +20,3 @@
 .profile-content p {
   margin-top: 10px;
 }
-
-@media only screen and (max-width: 600px) {
-  .profile {
-    margin-left: 20px;
-  }
-}

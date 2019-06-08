@@ -1,62 +1,68 @@
 .auth-fieldset {
-    margin: 150px auto;
-    width: 40%;
-    max-width: 400px;
-    background: #262626;
-    border: 1px solid #333333;
-    border-radius: 2px;
-    padding: 24px;
-    position: relative;
+  margin: 150px auto;
+  width: 40%;
+  max-width: 400px;
+  background: #262626;
+  border: 1px solid #333333;
+  border-radius: 2px;
+  padding: 24px;
+  position: relative;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.auth-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+  color: #b0b8bf;
+}
+
+.auth-input {
+  display: block;
+  width: 100%;
+  background: #212121;
+  font-size: 15px;
+  color: white;
+  border: 1px solid #333333;
+  border-radius: 3px;
+  padding: 8px;
+  outline: none;
+}
+
+.auth-input:focus {
+  border: 1px solid #3f5efb;
+}
+
+.auth-submit-button {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: #3f5efb;
+  cursor: pointer;
+  color: white;
+  align-self: flex-end;
+  border-style: none;
+  border-radius: 3px;
+  padding: 8px 24px;
+  outline: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .auth-fieldset {
+    width: 80%;
   }
-  
-  .auth-form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .input-wrapper {
-    position: relative;
-    margin-bottom: 24px;
-    width: 100%;
-  }
-  
-  .auth-label {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 8px;
-    color: #b0b8bf;
-  }
-  
-  .auth-input {
-    display: block;
-    width: 100%;
-    background: #212121;
-    font-size: 15px;
-    color: white;
-    border: 1px solid #333333;
-    border-radius: 3px;
-    padding: 8px;
-    outline: none;
-  }
-  
-  .auth-input:focus {
-    border: 1px solid #3f5efb;
-  }
-  
-  .auth-submit-button {
-    font-size: 12px;
-    text-transform: uppercase;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    background: #3f5efb;
-    cursor: pointer;
-    color: white;
-    align-self: flex-end;
-    border-style: none;
-    border-radius: 3px;
-    padding: 8px 24px;
-    outline: none;
-  }
+}

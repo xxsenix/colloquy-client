@@ -35,10 +35,11 @@ h1 {
 
 @media only screen and (max-width: 600px) {
   .landing-main {
-    justify-content: space-around;
+    width: 100%;
   }
 
-  .create-post {
-    margin-left: 20px;
+  .right {
+    position: relative;
+    right: 15px;
   }
 }

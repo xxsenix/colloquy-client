@@ -14,3 +14,10 @@
   font-size: 14px;
   line-height: 1.5;
 }
+
+@media only screen and (max-width: 600px) {
+  .thread-body-wrapper {
+    position: relative;
+    left: 15px;
+  }
+}
