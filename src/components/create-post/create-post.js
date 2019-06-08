@@ -79,15 +79,6 @@ export class CreatePost extends React.Component {
                 placeholder="title"
                 validate={[required, nonEmpty, isTrimmed, contentLength]}
               />
-              {/* <input
-                name="title"
-                type="text"
-                value={this.state.title}
-                onChange={e => this.setState({ title: e.target.value })}
-                placeholder="title"
-                autoComplete="off"
-                className="auth-input"
-              /> */}
             </div>
             <div className="input-wrapper">
               <label htmlFor="text" className="auth-label">
@@ -103,14 +94,6 @@ export class CreatePost extends React.Component {
                 className="create-post-text"
                 validate={[required, nonEmpty, isTrimmed, contentLength]}
               />
-              {/* <textarea
-                name="text"
-                rows="6"
-                value={this.state.body}
-                onChange={e => this.setState({ body: e.target.value })}
-                placeholder="keep it clean :)"
-                className="create-post-text"
-              /> */}
             </div>
             <button
               type="submit"

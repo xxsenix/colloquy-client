@@ -13,7 +13,6 @@ export class CommentList extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let deleteButton;
 
     if (this.props.item.comments.length === 0) {

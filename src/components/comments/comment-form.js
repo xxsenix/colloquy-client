@@ -2,8 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { postComment } from "../../actions/posts";
 import { getOnePost } from "../../actions/posts";
-import { Field, reduxForm, focus } from "redux-form";
-import Input from "../input";
+import { reduxForm, focus } from "redux-form";
 
 export class CommentForm extends React.Component {
   //initial state
@@ -33,7 +32,6 @@ export class CommentForm extends React.Component {
   }
 
   render() {
-    console.log("comment form props", this.props);
     return (
       <div className="new-comment-wrapper">
         <form className="new-comment-form" onSubmit={e => this.handleSubmit(e)}>
@@ -46,16 +44,6 @@ export class CommentForm extends React.Component {
             maxLength="90"
             onChange={e => this.setState({ body: e.target.value })}
           />
-          {/* <Field
-            component={Input}
-            name="comment"
-            placeholder="enter your comment"
-            rows="2"
-            className="input-comment"
-            value={this.state.body}
-            onChange={e => this.setState({ body: e.target.value })}
-          validate={[nonEmpty, isTrimmed, contentLength]}
-          /> */}
           <button type="submit" className="new-comment-button">
             submit
           </button>

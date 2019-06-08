@@ -9,17 +9,6 @@ export default class Post extends React.Component {
       return (
         <li key={i} className="item">
           <div className="post-wrapper" id={post.id}>
-            {/* <div className="voting-box">
-              <div className="voting-box-content">
-                <button className="voting-button">
-                  <i className="fas fa-angle-up" />
-                </button>
-                <span>{post.votes}</span>
-                <button className="voting-button">
-                  <i className="fas fa-angle-down" />
-                </button>
-              </div>
-            </div> */}
             <div className="content-wrapper">
               <div className="title-wrapper">
                 <Link to={`/c/${post.category}/${post.id}`}>{post.title}</Link>

@@ -16,7 +16,6 @@ export class CommentThread extends React.Component {
   }
 
   render() {
-    let categories;
     let profile;
     let createPost;
     let item = this.props.item;

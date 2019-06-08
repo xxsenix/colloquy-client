@@ -1,11 +1,9 @@
 .thread-body-wrapper {
-  /* background: #1b1b1b; */
   background: #212121;
   border-left: 1px solid #333333;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   padding: 10px;
-  /* height: auto; */
   height: 100px;
 }
 

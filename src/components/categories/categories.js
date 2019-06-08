@@ -13,7 +13,6 @@ export default class Categories extends React.Component {
           <Link key={index} to={category === "all" ? "/" : `/c/${category}`}>
             <div
               className={
-                // category === window.location.pathname.substring(3) ||
                 category === this.props.match.params.category ||
                 (category === "all" && window.location.pathname === "/")
                   ? "selected"
