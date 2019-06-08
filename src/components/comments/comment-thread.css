@@ -119,4 +119,8 @@
     position: relative;
     left: 15px;
   }
+
+  .comment-content {
+    word-break: break-all;
+  }
 }

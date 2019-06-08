@@ -19,7 +19,9 @@ export class OnePost extends React.Component {
         <button
           onClick={e => {
             e.preventDefault();
-            this.deleteItem(this.props.item.id);
+            if (window.confirm("Are you sure you want to delete this post?")) {
+              this.deleteItem(this.props.item.id);
+            }
           }}
           className="delete-post-button"
         >

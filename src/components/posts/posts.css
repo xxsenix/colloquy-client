@@ -127,4 +127,8 @@ a {
     position: relative;
     left: 15px;
   }
+
+  .title-wrapper {
+    word-break: break-all;
+  }
 }

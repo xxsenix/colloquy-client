@@ -5,9 +5,11 @@ import { getOnePost } from "../../actions/posts";
 
 export class CommentList extends React.Component {
   deleteComment(postId, commentId) {
-    this.props.dispatch(deleteComment(postId, commentId)).then(res => {
-      this.props.dispatch(getOnePost(postId));
-    });
+    if (window.confirm("Are you sure you want to delete this comment?")) {
+      this.props.dispatch(deleteComment(postId, commentId)).then(res => {
+        this.props.dispatch(getOnePost(postId));
+      });
+    }
   }
 
   render() {

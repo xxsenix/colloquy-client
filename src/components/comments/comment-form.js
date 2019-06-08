@@ -16,6 +16,7 @@ export class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (this.props.error) alert("hi");
 
     this.props
       .dispatch(postComment(this.state, this.props.item.id))
@@ -32,6 +33,7 @@ export class CommentForm extends React.Component {
   }
 
   render() {
+    console.log("comment form props", this.props);
     return (
       <div className="new-comment-wrapper">
         <form className="new-comment-form" onSubmit={e => this.handleSubmit(e)}>
@@ -41,6 +43,7 @@ export class CommentForm extends React.Component {
             rows="2"
             className="input-comment"
             value={this.state.body}
+            maxLength="90"
             onChange={e => this.setState({ body: e.target.value })}
           />
           {/* <Field
