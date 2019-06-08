@@ -4,8 +4,6 @@ import { postComment } from "../../actions/posts";
 import { getOnePost } from "../../actions/posts";
 import { Field, reduxForm, focus } from "redux-form";
 import Input from "../input";
-// import { nonEmpty, length, isTrimmed } from "../../validators";
-// const contentLength = length({ min: 5, max: 90 });
 
 export class CommentForm extends React.Component {
   //initial state
