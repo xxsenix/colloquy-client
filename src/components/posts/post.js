@@ -22,7 +22,7 @@ export default class Post extends React.Component {
             </div> */}
             <div className="content-wrapper">
               <div className="title-wrapper">
-                <a href="/">{post.title}</a>
+                <Link to={`/c/${post.category}/${post.id}`}>{post.title}</Link>
               </div>
               <div className="details-wrapper">
                 <Link

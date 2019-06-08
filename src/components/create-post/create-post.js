@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { postItem } from "../../actions/posts";
 import { Field, reduxForm, focus } from "redux-form";
+import { Redirect } from "react-router-dom";
 import Input from "../input";
 import { required, nonEmpty, length, isTrimmed } from "../../validators";
 import "./create-post.css";
@@ -37,6 +38,10 @@ export class CreatePost extends React.Component {
   }
 
   render() {
+    if (!this.props.loggedIn) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <main role="main" className="auth-main">
         <fieldset className="auth-fieldset">

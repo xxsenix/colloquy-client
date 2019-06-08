@@ -31,20 +31,11 @@ export class OnePost extends React.Component {
     return (
       <li className="item">
         <div className="post-wrapper" id={this.props.item.id}>
-          {/* <div className="voting-box">
-            <div className="voting-box-content">
-              <button className="voting-button">
-                <i className="fas fa-angle-up" />
-              </button>
-              <span>{this.props.item.votes}</span>
-              <button className="voting-button">
-                <i className="fas fa-angle-down" />
-              </button>
-            </div>
-          </div> */}
           <div className="content-wrapper">
             <div className="title-wrapper">
-              <a href="/">{this.props.item.title}</a>
+              <Link to={`/c/${this.props.item.category}/${this.props.item.id}`}>
+                {this.props.item.title}
+              </Link>
             </div>
             <div className="details-wrapper">
               <Link
