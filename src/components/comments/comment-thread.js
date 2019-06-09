@@ -18,6 +18,7 @@ export class CommentThread extends React.Component {
   render() {
     let profile;
     let createPost;
+    let commentForm;
     let item = this.props.item;
 
     if (this.props.loggedIn) {
@@ -26,6 +27,8 @@ export class CommentThread extends React.Component {
           Create Post
         </Link>
       );
+
+      commentForm = <CommentForm {...this.props} />;
       profile = <Profile />;
     }
 
@@ -38,7 +41,7 @@ export class CommentThread extends React.Component {
             </ul>
           </section>
           <PostBody item={item} />
-          <CommentForm {...this.props} />
+          {commentForm}
           <ul className="comment-list">
             <CommentList {...this.props} item={item} />
           </ul>
