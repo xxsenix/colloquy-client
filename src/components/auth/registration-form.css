@@ -61,6 +61,19 @@
   outline: none;
 }
 
+.demotitle {
+  color: #b0b8bf;
+  text-decoration: underline;
+  font-size: 13px;
+  padding: 2px;
+}
+
+.demologin {
+  color: #b0b8bf;
+  font-size: 12px;
+  padding: 2px;
+}
+
 @media only screen and (max-width: 600px) {
   .auth-fieldset {
     width: 80%;
