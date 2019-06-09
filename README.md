@@ -13,7 +13,7 @@ A simplified Reddit clone built with React
 Demo login:
 
 <ul>
-    <li>username: demouser</li>
+    <li>Username: demouser</li>
     <li>Password: demopassword</li>
 </ul>
 
