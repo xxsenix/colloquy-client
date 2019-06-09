@@ -4,9 +4,9 @@ import { postItem } from "../../actions/posts";
 import { Field, reduxForm, focus } from "redux-form";
 import { Redirect } from "react-router-dom";
 import Input from "../input";
-import { required, nonEmpty, length, isTrimmed } from "../../validators";
+import { required, nonEmpty, length } from "../../validators";
 import "./create-post.css";
-const contentLength = length({ min: 5, max: 90 });
+const titleLength = length({ min: 1, max: 90 });
 
 export class CreatePost extends React.Component {
   //initial state
@@ -77,22 +77,21 @@ export class CreatePost extends React.Component {
                 onChange={e => this.setState({ title: e.target.value })}
                 name="title"
                 placeholder="title"
-                validate={[required, nonEmpty, isTrimmed, contentLength]}
+                validate={[required, nonEmpty, titleLength]}
               />
             </div>
             <div className="input-wrapper">
               <label htmlFor="text" className="auth-label">
                 What do you want to say?
               </label>
-              <Field
-                component={Input}
-                name="text"
+              <textarea
+                name="body"
                 rows="6"
                 value={this.state.body}
                 onChange={e => this.setState({ body: e.target.value })}
                 placeholder="keep it clean :)"
                 className="create-post-text"
-                validate={[required, nonEmpty, isTrimmed, contentLength]}
+                maxLength="200"
               />
             </div>
             <button

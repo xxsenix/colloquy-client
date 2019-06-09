@@ -15,7 +15,6 @@ export class CommentForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.props.error) alert("hi");
 
     this.props
       .dispatch(postComment(this.state, this.props.item.id))
