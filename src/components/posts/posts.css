@@ -130,5 +130,6 @@ a {
 
   .title-wrapper {
     word-break: break-all;
+    hyphens: auto;
   }
 }
