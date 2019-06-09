@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Colloquy
 
-## Available Scripts
+A simplified Reddit clone built with React
 
-In the project directory, you can run:
+### Server Side Code
 
-### `npm start`
+[Server Side Code](https://github.com/xxsenix/colloquy-server)
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Demo
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+[Demo](https://quiet-beyond-44594.herokuapp.com/)
+Demo Login
 
-### `npm test`
+username: demouser
+password: demopassword
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshots
 
-### `npm run build`
+Landing Page
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Landing Page](https://user-images.githubusercontent.com/22872184/59154534-e322fa00-8a39-11e9-8997-5fd4084216f9.png)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+![Create Post](https://user-images.githubusercontent.com/22872184/59154560-339a5780-8a3a-11e9-8af2-bb5d58e15378.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Comment Thread](https://user-images.githubusercontent.com/22872184/59154566-5a588e00-8a3a-11e9-88ce-dbdcb160c77f.png)
 
-### `npm run eject`
+### Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- React
+- Node.js
+- Express
+- HTML
+- CSS
+- Javascript/JQuery
+- MongoDB
+- passport.js
+- JWT Token
+- bcrypt
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Testing
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Enzyme
+- Chai
+- Chai-http
+- Mocha
