@@ -52,4 +52,11 @@
   .colloquy-logo {
     margin-left: 20px;
   }
+
+  .logout-link,
+  .login-link,
+  .signup-link,
+  .username-link {
+    margin-right: 30px;
+  }
 }

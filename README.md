@@ -8,7 +8,7 @@ A simplified Reddit clone built with React
 
 ### Live Demo
 
-[Demo](https://quiet-beyond-44594.herokuapp.com/)
+[See it in action](https://quiet-beyond-44594.herokuapp.com/)
 
 Demo login:
 
