@@ -1,7 +1,7 @@
 import React from "react";
 import "./post-body.css";
 
-export default function PostBody(props) {
+const PostBody = (props) => {
   return (
     <div className="thread-body-wrapper">
       <div className="thread-body-content">
@@ -9,4 +9,6 @@ export default function PostBody(props) {
       </div>
     </div>
   );
-}
+};
+
+export default PostBody;
